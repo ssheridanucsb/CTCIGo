@@ -1,6 +1,9 @@
 package arraysandstrings
 
 func rotateMatrix(matrix [][]int) {
+	//rotate a matrix in place
+	//takes a slide of [][]int so all assignments are reflected on the undelrying arrays
+	// we'll rotate the perimiter of the matrix then move in until we reach a 2x2 or 3x3 matrix
 	N := len(matrix[0])
 	startIdx := 0
 
@@ -38,6 +41,7 @@ func rotateMatrix(matrix [][]int) {
 			return
 		}
 
+		//increment to rotate the sub matrix
 		startIdx++
 		N = N - 1
 	}

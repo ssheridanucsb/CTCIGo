@@ -7,6 +7,10 @@ import (
 
 func stringCompression(input string) string {
 
+	if len(input) == 0 {
+		return input
+	}
+
 	charArray := []rune(input)
 
 	var sb strings.Builder

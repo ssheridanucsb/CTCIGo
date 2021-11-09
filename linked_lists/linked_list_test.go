@@ -53,6 +53,6 @@ func TestDeleteNodeFromMiddle(t *testing.T) {
 	head = deleteNode(head, 1)
 
 	if head.data != 0 || head.next.data != 2 {
-		t.Error("Expected 1 to be delted")
+		t.Error("Expected 1 to be deleted")
 	}
 }

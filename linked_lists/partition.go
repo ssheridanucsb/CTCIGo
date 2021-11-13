@@ -16,22 +16,25 @@ func partition(head *IntNode, partition int) *IntNode {
 	for n != nil {
 		if n.data < partition {
 			if leftPartition == nil {
-				leftPartition = NewIntNode(n.data)
+				leftPartition = n
 				leftTail = leftPartition
 			} else {
-				leftTail.next = NewIntNode(n.data)
+				leftTail.next = n
 				leftTail = leftTail.next
 			}
+			n = n.next
+			leftTail.next = nil
 		} else {
 			if rightPartition == nil {
-				rightPartition = NewIntNode(n.data)
+				rightPartition = n
 				rightTail = rightPartition
 			} else {
-				rightTail.next = NewIntNode(n.data)
+				rightTail.next = n
 				rightTail = rightTail.next
 			}
+			n = n.next
+			rightTail.next = nil
 		}
-		n = n.next
 	}
 	if leftPartition == nil {
 		return rightPartition

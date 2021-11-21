@@ -13,11 +13,12 @@ func NewStackIntNode(data int) *StackIntNode {
 }
 
 type IntStack struct {
-	top *StackIntNode
+	top  *StackIntNode
+	size int
 }
 
 func NewIntStack() *IntStack {
-	return &IntStack{top: nil}
+	return &IntStack{top: nil, size: 0}
 }
 
 func (stack *IntStack) isEmpty() bool {
@@ -31,6 +32,7 @@ func (stack *IntStack) pop() (int, error) {
 
 	item := stack.top.data
 	stack.top = stack.top.next
+	stack.size--
 	return item, nil
 }
 
@@ -46,4 +48,5 @@ func (stack *IntStack) push(data int) {
 	node := NewStackIntNode(data)
 	node.next = stack.top
 	stack.top = node
+	stack.size++
 }
